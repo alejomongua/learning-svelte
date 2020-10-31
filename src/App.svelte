@@ -1,10 +1,11 @@
 <script>
 	import About from './components/About.svelte'
 	import Counter from './components/Counter.svelte';
+	import Input from './components/Input.svelte';
 	import Person from './components/Person.svelte';
+import Photos from './components/Photos.svelte';
+	import Skills from './components/Skills.svelte';
 	import Text from './components/Text.svelte';
-	export let name
-	export let lastName
 	let style = {
 		darkMode: false
 	}
@@ -24,8 +25,9 @@
 
 <main>
 	<button on:click={toggleDarkMode}>Toggle dark mode</button>
-	<h1>Hello {name} {lastName}!</h1>
+	<Input />
 	<About />
+	<Photos />
 	<Counter />
 	{#if style.darkMode}
 		<Text someText='Prop test' />
@@ -33,6 +35,7 @@
 		<Text />
 	{/if}
 	<Person {...data} />
+	<Skills />
 	<div>
 		<img src="{myImage}" alt="Logo bonito">
 	</div>
@@ -55,22 +58,11 @@
 		--theme-color: darkgray;
 	}
 
-	p {
-		color: var(--theme-color);
-		font-size: 2em;
-	}
 	main {
 		text-align: center;
 		padding: 1em;
 		max-width: 240px;
 		margin: 0 auto;
-	}
-
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
 	}
 
 	@media (min-width: 640px) {
